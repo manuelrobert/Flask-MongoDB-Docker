@@ -9,10 +9,10 @@ services:
     container_name: "sashuu6-flask_mongo-flask"
     restart: "always"
     ports:
-      - "${flaskport}:5000"
+      - "${FLASK_PORT}:5000"
     working_dir: /usr/share/sampleFlask/
     environment:
-      FLASK_ENV: ${flaskENV}
+      FLASK_ENV: ${FLASK_ENV}
     links:
       - mongodb
     volumes:
