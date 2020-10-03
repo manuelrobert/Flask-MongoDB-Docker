@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  flask:
+    build:
+      context: ./bin/flask
+    image: sashuu6/flask_mongodb:flask
+    container_name: "sashuu6-flask_mongo-flask"
+    restart: "always"
+    ports:
+      - "${flaskport}:5000"
+    working_dir: /usr/share/sampleFlask/
+    environment:
+      FLASK_ENV: ${flaskENV}
+    links:
+      - mongodb
+    volumes:
+      - ${LOG_FILE-./logs/flask/}:/usr/share/sampleFlask/logs/
